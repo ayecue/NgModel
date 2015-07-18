@@ -1,0 +1,16 @@
+{
+    "name": "ng-model",
+    "description": "A ExtJS inspired modellayer for AngularJS",
+    "main": "src/ng-model.js",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/ayecue/ng-model.git"
+    },
+    "devDependencies": {
+        "jasmine": "*",
+        "angular": "*",
+        "angular-mocks": "*"
+    },
+    "homepage": "https://github.com/ayecue/ng-model",
+    "version": "0.1.0"
+}
