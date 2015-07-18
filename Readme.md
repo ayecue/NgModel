@@ -6,7 +6,7 @@ NgModel is a [ExtJS Model](https://docs.sencha.com/extjs/5.1/5.1.0-apidocs/#!/ap
 
 NgModel is also inspired by [angular-activerecord](https://github.com/bfanger/angular-activerecord). This modellayer got some similarities since in the beginning I just extended [angular-activerecord](https://github.com/bfanger/angular-activerecord). But since I wanted some more advanced options I decided to rewrite the whole script without depending on [angular-activerecord](https://github.com/bfanger/angular-activerecord).
 
-[API Documentation](https://github.com/ayecue/NgModel/doc/index.html)
+[API Documentation](https://rawgit.com/ayecue/NgModel/master/doc/index.html)
 
 
 ## Features

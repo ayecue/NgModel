@@ -29,7 +29,7 @@ describe("NgModel", function() {
 		var Model = NgModel.create({
 			initialize: function() {
 				this.one = 1;
-				this.callParent();
+				this.callParent(arguments,'initialize');
 			}
 		});
 		var model = new Model();

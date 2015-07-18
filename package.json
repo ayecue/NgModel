@@ -1,11 +1,11 @@
 {
-    "name": "ng-model",
+    "name": "NgModel",
     "version": "0.1.0",
     "description": "A ExtJS inspired modellayer for AngularJS",
-    "main": "src/ng-model.js",
+    "main": "src/NgModel.js",
     "repository": {
         "type": "git",
-        "url": "git://github.com/ayecue/ng-model.git"
+        "url": "git://github.com/ayecue/NgModel.git"
     },
     "scripts": {
         "test": "./node_modules/karma/bin/karma start --single-run --browsers PhantomJS"

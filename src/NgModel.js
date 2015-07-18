@@ -1,6 +1,6 @@
 /*!
  * @license NgModel for AngularJS
- * (c) 2015 Sören Wehmeier
+ * (c) 2015 AyeCue
  * License: MIT
  * This is inspired by:
  * ExtJS modellayer (https://docs.sencha.com/extjs/5.1/5.1.0-apidocs/#!/api/Ext.data.Model),
@@ -203,6 +203,7 @@ angular
              * Check if value is defined. 
              *
              * @param {Mixed} obj  Value to check if it's defined.
+             * @return Boolean
              * @ignore
              */
             function isDefined (obj) {
@@ -234,10 +235,32 @@ angular
              * Call parent class method
              *
              * @param {Mixed} [args]  Arguments you need in the parent method.
+             * @param {String} [method]  If you use strict mode you may have to this argument to define the method you want to call.
+             * @return Mixed
              * @ignore
              */
-            function callParent(args){
-                return this.callParent.caller.$previous.apply(this,args);
+            function callParent(args,method){
+                var caller = this[method] || this.callParent.caller || arguments.callee.caller || arguments.caller;
+
+                if (!caller) {
+                    if (isStrict()) {
+                        throw new Error('You are in strict mode use the second parameter in "callParent".');
+                    }
+
+                    throw new Error('The method "callParent" failed because cannot identify caller.');
+                }
+
+                return caller.$previous.apply(this,args);
+            }
+
+            /**
+             * Check if strict
+             *
+             * @return Boolean
+             * @ignore
+             */
+            function isStrict() {
+                return !this;
             }
 
             /**
