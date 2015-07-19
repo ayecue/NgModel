@@ -76,7 +76,7 @@ module('myApp').factory('Sizes', function (NgModel) {
 	return NgModel.create({
 
 		//REST url to customer sizes endpoint
-		url: '/engine/{customerId}/sizes',
+		url: '/engine/{{customerId}}/sizes',
 
 		//Result root
 		resultRoot: 'payload',
