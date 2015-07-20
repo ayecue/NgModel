@@ -292,8 +292,8 @@ angular
                 sub.prototype = Object.create(extend.prototype);
                 sub.$super = extend;
                 
+                angular.extend(sub,extend);
                 extendTo(properties,sub.prototype);
-                extendTo(extend,sub);
                 extendTo(statics,sub);
                 
                 return sub;

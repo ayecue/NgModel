@@ -1,6 +1,6 @@
 {
     "name": "NgModel",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "A ExtJS inspired modellayer for AngularJS",
     "main": "src/NgModel.js",
     "homepage": "https://github.com/ayecue/NgModel",
