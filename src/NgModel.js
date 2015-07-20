@@ -289,7 +289,7 @@ angular
                 }
                 
                 sub.constructor.$previous = extend.constructor;
-                sub.prototype = new extend();
+                sub.prototype = Object.create(extend.prototype);
                 sub.$super = extend;
                 
                 extendTo(properties,sub.prototype);
@@ -612,13 +612,13 @@ angular
                         deferred = $q.defer();
 
                     if (me.isNew()) {
-                        deferred.resolve();
+                        deferred.resolve(me);
                         return deferred.promise;
                     }
 
                     this.sync('delete', this, options).then(function (response) {
                         me.response = response;
-                        deferred.resolve();
+                        deferred.resolve(me);
                     }, function(response){
                         me.response = response;
                         deferred.reject(me);
