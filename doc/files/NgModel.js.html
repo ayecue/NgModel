@@ -1,3 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>NgModel.js</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Batch.html">Batch</a></li>
+                                <li><a href="../classes/NgModel.html">NgModel</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: NgModel.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
 /*!
  * @license NgModel for AngularJS
  * (c) 2015 AyeCue
@@ -7,12 +89,12 @@
  * ActiveRecord (http://github.com/bfanger/angular-activerecord)
  */
 angular
-    .module('NgModel', [])
-    .factory('NgModel', [
-        '$q',
-        '$http',
-        '$parse',
-        '$interpolate',
+    .module(&#x27;NgModel&#x27;, [])
+    .factory(&#x27;NgModel&#x27;, [
+        &#x27;$q&#x27;,
+        &#x27;$http&#x27;,
+        &#x27;$parse&#x27;,
+        &#x27;$interpolate&#x27;,
         function($q,$http,$parse,$interpolate) {
             /**
              * Batch for NgModel operations
@@ -20,7 +102,7 @@ angular
              * @class Batch
              * @constructor
              * @param {NgModel} model  Model to use in batch.
-             * @param {String} operation  Operation type like 'read' or 'delete'.
+             * @param {String} operation  Operation type like &#x27;read&#x27; or &#x27;delete&#x27;.
              * @param {Object} [options]  Extra options for batch.
              * @private
              */
@@ -84,7 +166,7 @@ angular
                  * @private
                  */
                 isReading: function(){
-                    return this.operation === 'read';
+                    return this.operation === &#x27;read&#x27;;
                 },
 
                 /**
@@ -95,7 +177,7 @@ angular
                  * @private
                  */
                 isWriting: function(){
-                    return this.operation === 'create' || this.operation === 'update';
+                    return this.operation === &#x27;create&#x27; || this.operation === &#x27;update&#x27;;
                 },
 
                 /**
@@ -113,6 +195,7 @@ angular
             /**
              * Process filters through data object. 
              *
+             * @method applyFilters
              * @param {Object} [filters]  Collection of filters you want to apply.
              * @param {Object} [properties]  Object of the data.
              * @private
@@ -127,7 +210,7 @@ angular
                         newValue; 
 
                     if (isDefined(value)) {
-                        newValue = angular.isFunction(filter) ? filter(value) : $parse(namespace + '|' + filter)(properties);
+                        newValue = angular.isFunction(filter) ? filter(value) : $parse(namespace + &#x27;|&#x27; + filter)(properties);
                         setNamespace(properties,namespace,newValue);
                     }
                 });
@@ -136,12 +219,12 @@ angular
             /**
              * Check if value is defined. 
              *
-             * @param {Mixed} obj  Value to check if it's defined.
+             * @param {Mixed} obj  Value to check if it&#x27;s defined.
              * @return Boolean
              * @private
              */
             function isDefined (obj) {
-                return obj !== undefined && obj !== null;
+                return obj !== undefined &amp;&amp; obj !== null;
             }
 
             /**
@@ -178,10 +261,10 @@ angular
 
                 if (!caller) {
                     if (isStrict()) {
-                        throw new Error('You are in strict mode use the second parameter in "callParent".');
+                        throw new Error(&#x27;You are in strict mode use the second parameter in &quot;callParent&quot;.&#x27;);
                     }
 
-                    throw new Error('The method "callParent" failed because cannot identify caller.');
+                    throw new Error(&#x27;The method &quot;callParent&quot; failed because cannot identify caller.&#x27;);
                 }
 
                 return caller.$previous.apply(this,args);
@@ -230,9 +313,9 @@ angular
              * @private
              */
             function removeNamespace(obj,id,autoDelete){
-                var parts = id.split('.'),
+                var parts = id.split(&#x27;.&#x27;),
                     last = parts.pop(),
-                    pre = parts.join('.'),
+                    pre = parts.join(&#x27;.&#x27;),
                     root = getNamespace(obj,pre);
 
                 root[last] = null;
@@ -280,7 +363,7 @@ angular
                 properties = properties || {};
                 statics = statics || {};
                 
-                if (properties.hasOwnProperty('constructor')) {
+                if (properties.hasOwnProperty(&#x27;constructor&#x27;)) {
                     sub = properties.constructor;
                     properties.constructor = null;
                     delete properties.constructor;
@@ -329,7 +412,7 @@ angular
                     instance = new model(),
                     deferred = $q.defer();
 
-                instance.sync('read',instance,options).then(function (response){
+                instance.sync(&#x27;read&#x27;,instance,options).then(function (response){
                     var data = instance.parse(response.data, options),
                         models, filters;
 
@@ -344,7 +427,7 @@ angular
 
                         deferred.resolve(models);
                     } else {
-                        deferred.reject('Not a valid response, expecting an array');
+                        deferred.reject(&#x27;Not a valid response, expecting an array&#x27;);
                     }
                 }, deferred.reject);
 
@@ -367,9 +450,9 @@ angular
                  *
                  * @property idProperty
                  * @type String
-                 * @default "id"
+                 * @default &quot;id&quot;
                  */
-                idProperty: 'id',
+                idProperty: &#x27;id&#x27;,
 
                 /**
                  * The default propertiers of a record.
@@ -429,7 +512,7 @@ angular
                  * Exclude non persit data from request.
                  *
                  * @property notPersist
-                 * @type Array<String>
+                 * @type Array&lt;String&gt;
                  * @default []
                  */
                 notPersist: [],
@@ -439,13 +522,13 @@ angular
                  *
                  * @property actionMethods
                  * @type Object
-                 * @default {'create': 'POST','read': 'GET','update': 'PUT','delete': 'DELETE'}
+                 * @default {&#x27;create&#x27;: &#x27;POST&#x27;,&#x27;read&#x27;: &#x27;GET&#x27;,&#x27;update&#x27;: &#x27;PUT&#x27;,&#x27;delete&#x27;: &#x27;DELETE&#x27;}
                  */
                 actionMethods: {
-                    'create': 'POST',
-                    'read': 'GET',
-                    'update': 'PUT',
-                    'delete': 'DELETE'
+                    &#x27;create&#x27;: &#x27;POST&#x27;,
+                    &#x27;read&#x27;: &#x27;GET&#x27;,
+                    &#x27;update&#x27;: &#x27;PUT&#x27;,
+                    &#x27;delete&#x27;: &#x27;DELETE&#x27;
                 },
 
                 /**
@@ -453,13 +536,13 @@ angular
                  *
                  * @property api
                  * @type Object
-                 * @default {'create': null,'read': null,'update': null,'delete': null}
+                 * @default {&#x27;create&#x27;: null,&#x27;read&#x27;: null,&#x27;update&#x27;: null,&#x27;delete&#x27;: null}
                  */
                 api: {
-                    'create': null,
-                    'read': null,
-                    'update': null,
-                    'delete': null
+                    &#x27;create&#x27;: null,
+                    &#x27;read&#x27;: null,
+                    &#x27;update&#x27;: null,
+                    &#x27;delete&#x27;: null
                 },
 
                 /**
@@ -467,13 +550,13 @@ angular
                  *
                  * @property appendData
                  * @type Object
-                 * @default {'create': true,'read': false,'update': true,'delete': false}
+                 * @default {&#x27;create&#x27;: true,&#x27;read&#x27;: false,&#x27;update&#x27;: true,&#x27;delete&#x27;: false}
                  */
                 appendData: {
-                    'create': true,
-                    'read': false,
-                    'update': true,
-                    'delete': false
+                    &#x27;create&#x27;: true,
+                    &#x27;read&#x27;: false,
+                    &#x27;update&#x27;: true,
+                    &#x27;delete&#x27;: false
                 },
 
                 /**
@@ -551,7 +634,7 @@ angular
                     }
 
                     angular.forEach(current,function(value,property){
-                        if (current.hasOwnProperty(property) && !angular.equals(value, previousProperties[property]) === false) {
+                        if (current.hasOwnProperty(property) &amp;&amp; !angular.equals(value, previousProperties[property]) === false) {
                             changed[property] = value;
                         }
                     });
@@ -594,14 +677,14 @@ angular
                     var me = this,
                         deferred = $q.defer();
 
-                    me.sync('read', me, options).then(function (response) {
+                    me.sync(&#x27;read&#x27;, me, options).then(function (response) {
                         var data = me.parse(response.data, options),
                             status = response.status,
-                            success = status < 400;
+                            success = status &lt; 400;
 
                         me.response = response;
 
-                        if (success && angular.isObject(data)) {
+                        if (success &amp;&amp; angular.isObject(data)) {
                             applyFilters(me.readFilters, data);
                             me.extend(data);
                             me.previousProperties = function () {
@@ -630,17 +713,17 @@ angular
                  */
                 save: function (options) {
                     var me = this,
-                        operation = me.isNew() ? 'create' : 'update',
+                        operation = me.isNew() ? &#x27;create&#x27; : &#x27;update&#x27;,
                         deferred = $q.defer();
 
                     me.sync(operation, me, options).then(function (response) {
                         var data = me.parse(response.data, options),
                             status = response.status,
-                            success = status < 400;
+                            success = status &lt; 400;
 
                         me.response = response;
 
-                        if (success && angular.isObject(data)) {
+                        if (success &amp;&amp; angular.isObject(data)) {
                             applyFilters(me.readFilters, data);
                             me.extend(data);
                             me.previousProperties = function () {
@@ -676,7 +759,7 @@ angular
                         return deferred.promise;
                     }
 
-                    me.sync('delete', me, options).then(function (response) {
+                    me.sync(&#x27;delete&#x27;, me, options).then(function (response) {
                         me.response = response;
                         deferred.resolve(me);
                     }, function(response){
@@ -728,12 +811,12 @@ angular
                     }
 
                     if (!isDefined(formatedUrl)) {
-                        throw 'Implement this.buildUrl() or specify this.url';
+                        throw &#x27;Implement this.buildUrl() or specify this.url&#x27;;
                     }
 
-                    return $interpolate('{{root}}{{end}}{{id}}')({
+                    return $interpolate(&#x27;{{root}}{{end}}{{id}}&#x27;)({
                         root: formatedUrl,
-                        end: formatedUrl.charAt(formatedUrl.length - 1) === '/' ? '' : '/',
+                        end: formatedUrl.charAt(formatedUrl.length - 1) === &#x27;/&#x27; ? &#x27;&#x27; : &#x27;/&#x27;,
                         id: encodeURIComponent(data[me.idProperty])
                     });
                 },
@@ -847,7 +930,7 @@ angular
                  * Create a new object which all filtered data wanted.
                  *
                  * @method range
-                 * @param {Mixed} [...]  Property string you want to export or object with from/to information like {'myProp':'myNewProp'}.
+                 * @param {Mixed} [...]  Property string you want to export or object with from/to information like {&#x27;myProp&#x27;:&#x27;myNewProp&#x27;}.
                  * @return {Object}
                  */
                 range: function (){
@@ -894,3 +977,21 @@ angular
             return NgModel;
         }
     ]);
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

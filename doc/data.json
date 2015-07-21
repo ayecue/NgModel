@@ -1,0 +1,931 @@
+{
+    "project": {},
+    "files": {
+        "NgModel.js": {
+            "name": "NgModel.js",
+            "modules": {},
+            "classes": {
+                "Batch": 1,
+                "NgModel": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "Batch": {
+            "name": "Batch",
+            "shortname": "Batch",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "NgModel.js",
+            "line": 17,
+            "description": "Batch for NgModel operations",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "model",
+                    "description": "Model to use in batch.",
+                    "type": "NgModel"
+                },
+                {
+                    "name": "operation",
+                    "description": "Operation type like 'read' or 'delete'.",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "Extra options for batch.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "access": "private",
+            "tagname": ""
+        },
+        "NgModel": {
+            "name": "NgModel",
+            "shortname": "NgModel",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "NgModel.js",
+            "line": 355,
+            "description": "Call parent class method",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "properties",
+                    "description": "Start properties of record.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "static": 1,
+            "return": {
+                "description": "Constructor",
+                "type": "Function"
+            }
+        }
+    },
+    "classitems": [
+        {
+            "file": "NgModel.js",
+            "line": 40,
+            "description": "Initialize all options for batch.",
+            "itemtype": "method",
+            "name": "initOptions",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Batch"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 79,
+            "description": "Get if batch is reading.",
+            "itemtype": "method",
+            "name": "isReading",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Batch"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 90,
+            "description": "Get if batch is writing.",
+            "itemtype": "method",
+            "name": "isWriting",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Batch"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 101,
+            "description": "Get options property of batch.",
+            "itemtype": "method",
+            "name": "get",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Batch"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 113,
+            "description": "Process filters through data object.",
+            "itemtype": "method",
+            "name": "applyFilters",
+            "params": [
+                {
+                    "name": "filters",
+                    "description": "Collection of filters you want to apply.",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "properties",
+                    "description": "Object of the data.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Batch"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 137,
+            "description": "Check if value is defined.",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "Value to check if it's defined.",
+                    "type": "Mixed"
+                }
+            ],
+            "return": {
+                "description": "Boolean"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Batch"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 148,
+            "description": "Extend properties to target class.",
+            "params": [
+                {
+                    "name": "properties",
+                    "description": "Properties to extend.",
+                    "type": "Object"
+                },
+                {
+                    "name": "to",
+                    "description": "Target class.",
+                    "type": "Mixed"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Batch"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 169,
+            "description": "Call parent class method",
+            "params": [
+                {
+                    "name": "args",
+                    "description": "Arguments you need in the parent method.",
+                    "type": "Mixed",
+                    "optional": true
+                },
+                {
+                    "name": "method",
+                    "description": "If you use strict mode you may have to this argument to define the method you want to call.",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "Mixed"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Batch"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 191,
+            "description": "Check if strict",
+            "return": {
+                "description": "Boolean"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Batch"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 201,
+            "description": "Set namespace in object.",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "Object you want to manipulate.",
+                    "type": "Object"
+                },
+                {
+                    "name": "id",
+                    "description": "Namespace for value you want to set.",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "Value for namespace.",
+                    "type": "Mixed"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Batch"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 213,
+            "description": "Get namespace in object.",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "Object you want to search through.",
+                    "type": "Object"
+                },
+                {
+                    "name": "id",
+                    "description": "Namespace for value you want to get.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Mixed"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Batch"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 225,
+            "description": "Remove namespace in object.",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "Object you want to manipulate.",
+                    "type": "Object"
+                },
+                {
+                    "name": "id",
+                    "description": "Namespace for value you want to remove.",
+                    "type": "String"
+                },
+                {
+                    "name": "autoDelete",
+                    "description": "Auto delete parent if object is empty.",
+                    "type": "Boolean",
+                    "optional": true
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Batch"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 366,
+            "description": "The default namespace for the id property.",
+            "itemtype": "property",
+            "name": "idProperty",
+            "type": "String",
+            "default": "\"id\"",
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 375,
+            "description": "The default propertiers of a record.",
+            "itemtype": "property",
+            "name": "defaultData",
+            "type": "Object",
+            "default": "{}",
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 384,
+            "description": "The default headers for a request.",
+            "itemtype": "property",
+            "name": "headers",
+            "type": "Object",
+            "default": "{}",
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 393,
+            "description": "The root namespace which contain the data.",
+            "itemtype": "property",
+            "name": "resultRoot",
+            "type": "String",
+            "default": "null",
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 402,
+            "description": "The root namespace which contain the data.",
+            "itemtype": "property",
+            "name": "url",
+            "type": "String",
+            "default": "null",
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 411,
+            "description": "Filter for data processing when reading.",
+            "itemtype": "property",
+            "name": "readFilters",
+            "type": "Object",
+            "default": "null",
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 420,
+            "description": "Filter for data processing when writing.",
+            "itemtype": "property",
+            "name": "writeFilters",
+            "type": "Object",
+            "default": "null",
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 429,
+            "description": "Exclude non persit data from request.",
+            "itemtype": "property",
+            "name": "notPersist",
+            "type": "Array<String>",
+            "default": "[]",
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 438,
+            "description": "Define your model crud schema.",
+            "itemtype": "property",
+            "name": "actionMethods",
+            "type": "Object",
+            "default": "{'create': 'POST','read': 'GET','update': 'PUT','delete': 'DELETE'}",
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 452,
+            "description": "Specify certain url for certain operations (optional).",
+            "itemtype": "property",
+            "name": "api",
+            "type": "Object",
+            "default": "{'create': null,'read': null,'update': null,'delete': null}",
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 466,
+            "description": "Specify for which operation your model should append data to the request.",
+            "itemtype": "property",
+            "name": "appendData",
+            "type": "Object",
+            "default": "{'create': true,'read': false,'update': true,'delete': false}",
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 480,
+            "description": "Model initialization",
+            "itemtype": "method",
+            "name": "initialize",
+            "params": [
+                {
+                    "name": "properties",
+                    "description": "Start properties of record.",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "options",
+                    "description": "Additional options for model.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 511,
+            "description": "Check if model data has changed since the last sync.",
+            "itemtype": "method",
+            "name": "hasChanged",
+            "params": [
+                {
+                    "name": "property",
+                    "description": "Property to control.",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 533,
+            "description": "Create object which contains all changed properties.",
+            "itemtype": "method",
+            "name": "changedProperties",
+            "params": [
+                {
+                    "name": "diff",
+                    "description": "An object to diff against, determining if there would be a change.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 563,
+            "description": "Get the state of a property before the last change.",
+            "itemtype": "method",
+            "name": "previous",
+            "params": [
+                {
+                    "name": "property",
+                    "description": "Property which you want to get.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Mixed"
+            },
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 577,
+            "description": "Get the state of data before the last change.",
+            "itemtype": "method",
+            "name": "previousProperties",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 587,
+            "description": "Read a record.",
+            "itemtype": "method",
+            "name": "fetch",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "Additonal request options.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "$q.promise"
+            },
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 625,
+            "description": "Save/Update a record.",
+            "itemtype": "method",
+            "name": "save",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "Additonal request options.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "$q.promise"
+            },
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 664,
+            "description": "Delete a record.",
+            "itemtype": "method",
+            "name": "destroy",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "Additonal request options.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "$q.promise"
+            },
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 691,
+            "description": "Sync a record.",
+            "itemtype": "method",
+            "name": "sync",
+            "params": [
+                {
+                    "name": "operation",
+                    "description": "Indicates which operation should be done.",
+                    "type": "String"
+                },
+                {
+                    "name": "model",
+                    "description": "Record used for request.",
+                    "type": "NgModel"
+                },
+                {
+                    "name": "options",
+                    "description": "Additonal request options.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "$q.promise"
+            },
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 713,
+            "description": "Put together url for request.",
+            "itemtype": "method",
+            "name": "buildUrl",
+            "params": [
+                {
+                    "name": "operation",
+                    "description": "Indicates which operation should be done.",
+                    "type": "String"
+                },
+                {
+                    "name": "options",
+                    "description": "Batch options.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 742,
+            "description": "Parse raw data from request response.",
+            "itemtype": "method",
+            "name": "parse",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "Raw request response data.",
+                    "type": "Object"
+                },
+                {
+                    "name": "options",
+                    "description": "Request options.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 758,
+            "description": "Indicates if record is new or not (important for save/update operation).",
+            "itemtype": "method",
+            "name": "isNew",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 768,
+            "description": "Getter for data property.",
+            "itemtype": "method",
+            "name": "toJSON",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 778,
+            "description": "Easy way to extend model to a scope.",
+            "itemtype": "method",
+            "name": "toScope",
+            "params": [
+                {
+                    "name": "scope",
+                    "description": "Scope you want to add the model.",
+                    "type": "Object"
+                },
+                {
+                    "name": "key",
+                    "description": "Property where you want to add the model to.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "NgModel"
+            },
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 791,
+            "description": "Process data for batch (advised to extend as soon as you want extended data processing for requests).",
+            "itemtype": "method",
+            "name": "getRequestData",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 801,
+            "description": "Get id of record.",
+            "itemtype": "method",
+            "name": "getId",
+            "return": {
+                "description": "",
+                "type": "Mixed"
+            },
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 811,
+            "description": "Change id of record.",
+            "itemtype": "method",
+            "name": "setId",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "Id value for record.",
+                    "type": "Mixed"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Mixed"
+            },
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 823,
+            "description": "Getter for certain data properties.",
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "Namespace for value you want to get.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Mixed"
+            },
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 834,
+            "description": "Setter for certain data properties.",
+            "itemtype": "method",
+            "name": "set",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "Namespace for value you want to set.",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "Value you want to set.",
+                    "type": "Mixed"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Mixed"
+            },
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 847,
+            "description": "Create a new object which all filtered data wanted.",
+            "itemtype": "method",
+            "name": "range",
+            "params": [
+                {
+                    "name": "",
+                    "description": "Property string you want to export or object with from/to information like {'myProp':'myNewProp'}.",
+                    "type": "Mixed",
+                    "optional": true,
+                    "multiple": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 873,
+            "description": "Easily extend the data object of your model.",
+            "itemtype": "method",
+            "name": "extend",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "Data to extend.",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "NgModel"
+            },
+            "class": "NgModel"
+        },
+        {
+            "file": "NgModel.js",
+            "line": 885,
+            "description": "Call parent class method",
+            "itemtype": "method",
+            "name": "callParent",
+            "params": [
+                {
+                    "name": "args",
+                    "description": "Arguments you need in the parent method.",
+                    "type": "Mixed",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Mixed"
+            },
+            "class": "NgModel"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " NgModel.js:40"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " NgModel.js:79"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " NgModel.js:90"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " NgModel.js:101"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " NgModel.js:213"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " NgModel.js:511"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " NgModel.js:533"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " NgModel.js:563"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " NgModel.js:577"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " NgModel.js:758"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " NgModel.js:768"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " NgModel.js:778"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " NgModel.js:791"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " NgModel.js:801"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " NgModel.js:811"
+        },
+        {
+            "message": "Missing item type\nCheck if value is defined.",
+            "line": " NgModel.js:137"
+        },
+        {
+            "message": "Missing item type\nExtend properties to target class.",
+            "line": " NgModel.js:148"
+        },
+        {
+            "message": "Missing item type\nCall parent class method",
+            "line": " NgModel.js:169"
+        },
+        {
+            "message": "Missing item type\nCheck if strict",
+            "line": " NgModel.js:191"
+        },
+        {
+            "message": "Missing item type\nSet namespace in object.",
+            "line": " NgModel.js:201"
+        },
+        {
+            "message": "Missing item type\nGet namespace in object.",
+            "line": " NgModel.js:213"
+        },
+        {
+            "message": "Missing item type\nRemove namespace in object.",
+            "line": " NgModel.js:225"
+        }
+    ]
+}
