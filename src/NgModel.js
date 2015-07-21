@@ -8,161 +8,102 @@
  */
 angular
     .module('NgModel', [])
-    .factory('Batch', ['Namespace', function(Namespace){
-        /**
-         * @class Batch  Batch for AngularJS
-         * @constructor
-         * @param {NgModel} [model]  Model to use in batch.
-         * @param {String} [operation]  Operation type like 'read' or 'delete'.
-         * @param {Object} [options]  Extra options for batch.
-         */
-        function Batch(model,operation,options){
-            var me = this;
-
-            angular.extend(me,{
-                model: model,
-                operation: operation,
-                options: options || {}
-            });
-
-            me.initOptions();
-        };
-
-        Batch.prototype = {
-            /**
-             * Initialize all options for batch.
-             *
-             * @returns {Object}
-             * @ignore
-             */
-            initOptions: function(){
-                var me = this,
-                    model = me.model,
-                    options = me.options;
-
-                options.data = options.data || {};
-
-                if (model.appendData[me.operation]) {
-                    angular.extend(options.data,model.getRequestData());
-
-                    angular.forEach(model.notPersist,function(toExclude) {
-                        Namespace.remove(options.data,toExclude,true);
-                    });
-                }
-
-                if (!options.headers) {
-                    options.headers = model.headers;
-                } else {
-                    angular.extend(options.headers,model.headers);
-                }
-
-                if (!options.method) {
-                    options.method = model.actionMethods[me.operation];
-                }
-
-                if (!options.url) {
-                    options.url = model.buildUrl(me.operation,options);
-                }
-
-                return options;
-            },
-
-            /**
-             * Get if batch is reading.
-             *
-             * @returns {Boolean}
-             */
-            isReading: function(){
-                return this.operation === 'read';
-            },
-
-            /**
-             * Get if batch is writing.
-             *
-             * @returns {Boolean}
-             */
-            isWriting: function(){
-                return this.operation === 'create' || this.operation === 'update';
-            },
-
-            /**
-             * Get options property of batch.
-             *
-             * @returns {Object}
-             */
-            get: function(){
-                return this.options;
-            }
-        };
-
-        return Batch;
-    }])
-    .factory('Namespace', ['$parse',function($parse) {
-        return {
-            /**
-             * @property {String} delimiter  The object delimiter char.
-             */
-            delimiter: '.',
-
-            /**
-             * Set namespace in object.
-             *
-             * @param {Object} [obj]  Object you want to manipulate.
-             * @param {String} [id]  Namespace for value you want to set.
-             * @param {Mixed} [value]  Value for namespace.
-             */
-            set: function(obj,id,value){
-                $parse(id).assign(obj,value);
-            },
-
-            /**
-             * Get namespace in object.
-             *
-             * @param {Object} [obj]  Object you want to search through.
-             * @param {String} [id]  Namespace for value you want to get.
-             * @returns {Mixed}
-             */
-            get: function(obj,id){
-                return $parse(id)(obj);
-            },
-
-            /**
-             * Remove namespace in object.
-             *
-             * @param {Object} [obj]  Object you want to manipulate.
-             * @param {String} [id]  Namespace for value you want to remove.
-             * @param {Boolean} [autoDelete]  Auto delete parent if object is empty.
-             */
-            remove: function(obj,id,autoDelete){
-                var me = this,
-                    parts = id.split(me.delimiter),
-                    last = parts.pop(),
-                    pre = parts.join(me.delimiter),
-                    root = me.get(obj,pre);
-
-                root[last] = null;
-                delete root[last];
-
-                if (autoDelete) {
-                    for (var key in root) {
-                        if (root.hasOwnProperty(key)) {
-                            return;
-                        }
-                    }
-
-                    me.remove(obj,pre,autoDelete);
-                }
-            }
-        };
-    }])
     .factory('NgModel', [
         '$q',
         '$http',
         '$parse',
         '$interpolate',
-        'Namespace',
-        'Batch', 
-        function($q,$http,$parse,$interpolate,Namespace,Batch) {
+        function($q,$http,$parse,$interpolate) {
+            /**
+             * @class Batch  Batch for AngularJS
+             * @constructor
+             * @param {NgModel} model  Model to use in batch.
+             * @param {String} operation  Operation type like 'read' or 'delete'.
+             * @param {Object} [options]  Extra options for batch.
+             * @ignore
+             */
+            function Batch(model,operation,options){
+                var me = this;
+
+                angular.extend(me,{
+                    model: model,
+                    operation: operation,
+                    options: options || {}
+                });
+
+                me.initOptions();
+            };
+
+            Batch.prototype = {
+                /**
+                 * Initialize all options for batch.
+                 *
+                 * @returns {Object}
+                 * @ignore
+                 */
+                initOptions: function(){
+                    var me = this,
+                        model = me.model,
+                        options = me.options;
+
+                    options.data = options.data || {};
+
+                    if (model.appendData[me.operation]) {
+                        angular.extend(options.data,model.getRequestData());
+
+                        angular.forEach(model.notPersist,function(toExclude) {
+                            removeNamespace(options.data,toExclude,true);
+                        });
+                    }
+
+                    if (!options.headers) {
+                        options.headers = model.headers;
+                    } else {
+                        angular.extend(options.headers,model.headers);
+                    }
+
+                    if (!options.method) {
+                        options.method = model.actionMethods[me.operation];
+                    }
+
+                    if (!options.url) {
+                        options.url = model.buildUrl(me.operation,options);
+                    }
+
+                    return options;
+                },
+
+                /**
+                 * Get if batch is reading.
+                 *
+                 * @returns {Boolean}
+                 * @ignore
+                 */
+                isReading: function(){
+                    return this.operation === 'read';
+                },
+
+                /**
+                 * Get if batch is writing.
+                 *
+                 * @returns {Boolean}
+                 * @ignore
+                 */
+                isWriting: function(){
+                    return this.operation === 'create' || this.operation === 'update';
+                },
+
+                /**
+                 * Get options property of batch.
+                 *
+                 * @returns {Object}
+                 * @ignore
+                 */
+                get: function(){
+                    return this.options;
+                }
+            };
+
             /**
              * @class NgModel  NgModel for AngularJS
              * @constructor
@@ -189,12 +130,12 @@ angular
                 }
 
                 angular.forEach(filters, function (filter,namespace) {
-                    var value = Namespace.get(properties,namespace),
+                    var value = getNamespace(properties,namespace),
                         newValue; 
 
                     if (isDefined(value)) {
                         newValue = angular.isFunction(filter) ? filter(value) : $parse(namespace + '|' + filter)(properties);
-                        Namespace.set(properties,namespace,newValue);
+                        setNamespace(properties,namespace,newValue);
                     }
                 });
             }
@@ -261,6 +202,59 @@ angular
              */
             function isStrict() {
                 return !this;
+            }
+
+            /**
+             * Set namespace in object.
+             *
+             * @param {Object} obj  Object you want to manipulate.
+             * @param {String} id  Namespace for value you want to set.
+             * @param {Mixed} value  Value for namespace.
+             * @ignore
+             */
+            function setNamespace(obj,id,value){
+                $parse(id).assign(obj,value);
+            }
+
+            /**
+             * Get namespace in object.
+             *
+             * @param {Object} obj  Object you want to search through.
+             * @param {String} id  Namespace for value you want to get.
+             * @returns {Mixed}
+             * @ignore
+             */
+            function getNamespace(obj,id){
+                return $parse(id)(obj);
+            }
+
+            /**
+             * Remove namespace in object.
+             *
+             * @param {Object} obj  Object you want to manipulate.
+             * @param {String} id  Namespace for value you want to remove.
+             * @param {Boolean} [autoDelete]  Auto delete parent if object is empty.
+             * @ignore
+             */
+            function removeNamespace(obj,id,autoDelete){
+                var me = this,
+                    parts = id.split('.'),
+                    last = parts.pop(),
+                    pre = parts.join('.'),
+                    root = me.get(obj,pre);
+
+                root[last] = null;
+                delete root[last];
+
+                if (autoDelete) {
+                    for (var key in root) {
+                        if (root.hasOwnProperty(key)) {
+                            return;
+                        }
+                    }
+
+                    me.remove(obj,pre,autoDelete);
+                }
             }
 
             /**
@@ -514,7 +508,7 @@ angular
                     var me = this,
                         previous = me.previousAttributes();
 
-                    return Namespace.get(previous,property);
+                    return getNamespace(previous,property);
                 },
 
                 /**
@@ -616,7 +610,7 @@ angular
                         return deferred.promise;
                     }
 
-                    this.sync('delete', this, options).then(function (response) {
+                    me.sync('delete', me, options).then(function (response) {
                         me.response = response;
                         deferred.resolve(me);
                     }, function(response){
@@ -688,7 +682,7 @@ angular
                         return data;
                     }
 
-                    return Namespace.get(data,this.resultRoot);
+                    return getNamespace(data,this.resultRoot);
                 },
 
                 /**
@@ -757,7 +751,7 @@ angular
                  * @return {Mixed}
                  */
                 get: function (key){
-                    return Namespace.get(this.data,key);
+                    return getNamespace(this.data,key);
                 },
 
                 /**
@@ -768,7 +762,7 @@ angular
                  * @return {Mixed}
                  */
                 set: function (key,value){
-                    Namespace.set(this.data,key,value);
+                    setNamespace(this.data,key,value);
                     return this;
                 },
 
