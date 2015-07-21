@@ -336,6 +336,8 @@ angular
                         deferred.reject('Not a valid response, expecting an array');
                     }
                 }, deferred.reject);
+
+                return deferred.promise;
             };
 
             /**
