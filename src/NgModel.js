@@ -399,7 +399,7 @@ angular
                 resultRoot: null,
 
                 /**
-                 * The root namespace which contain the data.
+                 * The main request url.
                  *
                  * @property url
                  * @type String

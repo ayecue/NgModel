@@ -347,7 +347,7 @@
         {
             "file": "NgModel.js",
             "line": 402,
-            "description": "The root namespace which contain the data.",
+            "description": "The main request url.",
             "itemtype": "property",
             "name": "url",
             "type": "String",
