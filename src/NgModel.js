@@ -237,11 +237,10 @@ angular
              * @ignore
              */
             function removeNamespace(obj,id,autoDelete){
-                var me = this,
-                    parts = id.split('.'),
+                var parts = id.split('.'),
                     last = parts.pop(),
                     pre = parts.join('.'),
-                    root = me.get(obj,pre);
+                    root = getNamespace(obj,pre);
 
                 root[last] = null;
                 delete root[last];
@@ -253,7 +252,7 @@ angular
                         }
                     }
 
-                    me.remove(obj,pre,autoDelete);
+                    removeNamespace(obj,pre,autoDelete);
                 }
             }
 
