@@ -6,14 +6,14 @@
  * ExtJS modellayer (https://docs.sencha.com/extjs/5.1/5.1.0-apidocs/#!/api/Ext.data.Model),
  * ActiveRecord (http://github.com/bfanger/angular-activerecord)
  */
-angular
-    .module('NgModel', [])
-    .factory('NgModel', [
-        '$q',
-        '$http',
-        '$parse',
-        '$interpolate',
-        function($q,$http,$parse,$interpolate) {
+angular  //ignore in docs
+    .module('NgModel', [])  //ignore in docs
+    .factory('NgModel', [  //ignore in docs
+        '$q',  //ignore in docs
+        '$http',  //ignore in docs
+        '$parse',  //ignore in docs
+        '$interpolate',  //ignore in docs
+        function($q,$http,$parse,$interpolate) { //ignore in docs
             /**
              * Batch for NgModel operations
              *
@@ -41,7 +41,7 @@ angular
                  * Initialize all options for batch.
                  *
                  * @method initOptions
-                 * @returns {Object}
+                 * @return {Object}
                  * @private
                  */
                 initOptions: function(){
@@ -80,7 +80,7 @@ angular
                  * Get if batch is reading.
                  *
                  * @method isReading
-                 * @returns {Boolean}
+                 * @return {Boolean}
                  * @private
                  */
                 isReading: function(){
@@ -91,7 +91,7 @@ angular
                  * Get if batch is writing.
                  *
                  * @method isWriting
-                 * @returns {Boolean}
+                 * @return {Boolean}
                  * @private
                  */
                 isWriting: function(){
@@ -102,7 +102,7 @@ angular
                  * Get options property of batch.
                  *
                  * @method get
-                 * @returns {Object}
+                 * @return {Object}
                  * @private
                  */
                 get: function(){
@@ -214,7 +214,7 @@ angular
              *
              * @param {Object} obj  Object you want to search through.
              * @param {String} id  Namespace for value you want to get.
-             * @returns {Mixed}
+             * @return {Mixed}
              * @private
              */
             function getNamespace(obj,id){
@@ -267,7 +267,7 @@ angular
             /**
              * Create new child type of model.
              *
-             * @class NgModel
+             * @method create
              * @static
              * @param {Object} [properties]  prototypeProperties for child model prototype.
              * @param {Object} [statics]  staticProperties for child model static properties.
@@ -304,7 +304,7 @@ angular
             /**
              * Fetch one record.
              *
-             * @class NgModel
+             * @method fetchOne
              * @static
              * @param {Mixed} id
              * @param {Object} [options]  Additional options for request.
@@ -319,8 +319,8 @@ angular
             /**
              * Fetch collection of records.
              *
+             * @method fetchAll
              * @static
-             * @class NgModel
              * @param {Object} [options]  Additional options for request.
              * @return $q.promise
              */
@@ -354,8 +354,9 @@ angular
             /**
              * Call parent class method
              *
-             * @class NgModel
+             * @method callParent
              * @static
+             * @private
              * @param {Mixed} [args]  Arguments you need in the parent method.
              * @return {Mixed}
              */
@@ -480,6 +481,7 @@ angular
                  * Model initialization
                  *
                  * @method initialize
+                 * @private
                  * @param {Object} [properties]  Start properties of record.
                  * @param {Object} [options]  Additional options for model.
                  */
@@ -512,7 +514,7 @@ angular
                  *
                  * @method hasChanged
                  * @param {String} [property]  Property to control.
-                 * @returns {Boolean}
+                 * @return {Boolean}
                  */
                 hasChanged: function (property) {
                     var me = this,
@@ -534,7 +536,7 @@ angular
                  *
                  * @method changedProperties
                  * @param {Object} [diff] An object to diff against, determining if there would be a change.
-                 * @returns {Object}
+                 * @return {Object}
                  */
                 changedProperties: function (diff) {
                     var me = this,
@@ -564,7 +566,7 @@ angular
                  *
                  * @method previous
                  * @param {String} property  Property which you want to get.
-                 * @returns {Mixed}
+                 * @return {Mixed}
                  */
                 previous: function (property) {
                     var me = this,
@@ -577,7 +579,7 @@ angular
                  * Get the state of data before the last change.
                  *
                  * @method previousProperties
-                 * @returns {Object}
+                 * @return {Object}
                  */
                 previousProperties: function () {
                     return {};
@@ -691,6 +693,7 @@ angular
                  * Sync a record.
                  *
                  * @method sync
+                 * @private
                  * @param {String} operation  Indicates which operation should be done.
                  * @param {NgModel} model  Record used for request.
                  * @param {Object} [options]  Additonal request options.
@@ -713,6 +716,7 @@ angular
                  * Put together url for request.
                  *
                  * @method buildUrl
+                 * @private
                  * @param {String} operation  Indicates which operation should be done.
                  * @param {Object} [options]  Batch options.
                  * @return {String}
@@ -742,6 +746,7 @@ angular
                  * Parse raw data from request response.
                  *
                  * @method parse
+                 * @private
                  * @param {Object} data  Raw request response data.
                  * @param {Object} [options]  Request options.
                  * @return {Object}
@@ -758,7 +763,7 @@ angular
                  * Indicates if record is new or not (important for save/update operation).
                  *
                  * @method isNew
-                 * @returns {Boolean}
+                 * @return {Boolean}
                  */
                 isNew: function () {
                     return !isDefined(this.getId());
@@ -768,7 +773,7 @@ angular
                  * Getter for data property.
                  *
                  * @method toJSON
-                 * @returns {Object}
+                 * @return {Object}
                  */
                 toJSON: function (){
                     return this.data;
@@ -780,7 +785,7 @@ angular
                  * @method toScope
                  * @param {Object} scope  Scope you want to add the model.
                  * @param {String} key  Property where you want to add the model to.
-                 * @returns {NgModel}
+                 * @return {NgModel}
                  */
                 toScope: function(scope,key){
                     scope[key] = this.data;
@@ -791,7 +796,8 @@ angular
                  * Process data for batch (advised to extend as soon as you want extended data processing for requests).
                  *
                  * @method getRequestData
-                 * @returns {Object}
+                 * @private
+                 * @return {Object}
                  */
                 getRequestData: function (){
                     return this.data;
@@ -801,7 +807,7 @@ angular
                  * Get id of record.
                  *
                  * @method getId
-                 * @returns {Mixed}
+                 * @return {Mixed}
                  */
                 getId: function (){
                     return this.data[this.idProperty];
@@ -812,7 +818,7 @@ angular
                  *
                  * @method setId
                  * @param {Mixed} id  Id value for record.
-                 * @returns {Mixed}
+                 * @return {Mixed}
                  */
                 setId: function (id){
                     this.data[this.idProperty] = id;
@@ -885,12 +891,13 @@ angular
                  * Call parent class method
                  *
                  * @method callParent
+                 * @private
                  * @param {Mixed} [args]  Arguments you need in the parent method.
                  * @return {Mixed}
                  */
                 callParent: callParent
             };
 
-            return NgModel;
-        }
-    ]);
+            return NgModel; //ignore in docs
+        } //ignore in docs
+    ]); //ignore in docs

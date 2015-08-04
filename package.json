@@ -8,7 +8,11 @@
         "url": "git://github.com/ayecue/NgModel.git"
     },
     "scripts": {
-        "test": "./node_modules/karma/bin/karma start --single-run --browsers PhantomJS"
+        "test": "./node_modules/karma/bin/karma start --single-run --browsers PhantomJS",
+        "copy": "[ -d temp ] || mkdir temp && cp src/NgModel.js temp/NgModel.js",
+        "doc": "npm run copy && sed -i -E 's/.+ignore in doc//g' temp/NgModel.js && ./node_modules/yuidocjs/lib/cli.js && rm -r temp",
+        "build": "./node_modules/uglify-js/bin/uglifyjs src/NgModel.js --compress --mange --output src/NgModel.min.js && npm run addmessage",
+        "addmessage": "sed -i -E 's/^/\\/\\/@license NgModel for AngularJS, (c) 2015 AyeCue, License: MIT\\n/' src/NgModel.min.js" 
     },
     "readmeFilename": "Readme.md",
     "dependencies": {},
@@ -16,6 +20,8 @@
         "karma": "^0.12.1",
         "karma-chrome-launcher": "^0.1.2",
         "karma-jasmine": "^0.1.5",
-        "karma-phantomjs-launcher": "^0.1.2"
+        "karma-phantomjs-launcher": "^0.1.2",
+        "yuidocjs": "^0.8.1",
+        "uglify-js": "^2.4.24"
     }
 }

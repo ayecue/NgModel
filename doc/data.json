@@ -1,8 +1,13 @@
 {
-    "project": {},
+    "project": {
+        "name": "NgModel",
+        "description": "A ExtJS inspired modellayer for AngularJS",
+        "version": "0.1.6",
+        "url": "https://github.com/ayecue/NgModel"
+    },
     "files": {
-        "NgModel.js": {
-            "name": "NgModel.js",
+        "temp/NgModel.js": {
+            "name": "temp/NgModel.js",
             "modules": {},
             "classes": {
                 "Batch": 1,
@@ -22,7 +27,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "file": "NgModel.js",
+            "file": "temp/NgModel.js",
             "line": 17,
             "description": "Batch for NgModel operations",
             "is_constructor": 1,
@@ -55,9 +60,9 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "file": "NgModel.js",
-            "line": 355,
-            "description": "Call parent class method",
+            "file": "temp/NgModel.js",
+            "line": 252,
+            "description": "Modellayer for AngularJS",
             "is_constructor": 1,
             "params": [
                 {
@@ -66,17 +71,12 @@
                     "type": "Object",
                     "optional": true
                 }
-            ],
-            "static": 1,
-            "return": {
-                "description": "Constructor",
-                "type": "Function"
-            }
+            ]
         }
     },
     "classitems": [
         {
-            "file": "NgModel.js",
+            "file": "temp/NgModel.js",
             "line": 40,
             "description": "Initialize all options for batch.",
             "itemtype": "method",
@@ -90,7 +90,7 @@
             "class": "Batch"
         },
         {
-            "file": "NgModel.js",
+            "file": "temp/NgModel.js",
             "line": 79,
             "description": "Get if batch is reading.",
             "itemtype": "method",
@@ -104,7 +104,7 @@
             "class": "Batch"
         },
         {
-            "file": "NgModel.js",
+            "file": "temp/NgModel.js",
             "line": 90,
             "description": "Get if batch is writing.",
             "itemtype": "method",
@@ -118,7 +118,7 @@
             "class": "Batch"
         },
         {
-            "file": "NgModel.js",
+            "file": "temp/NgModel.js",
             "line": 101,
             "description": "Get options property of batch.",
             "itemtype": "method",
@@ -132,11 +132,9 @@
             "class": "Batch"
         },
         {
-            "file": "NgModel.js",
+            "file": "temp/NgModel.js",
             "line": 113,
             "description": "Process filters through data object.",
-            "itemtype": "method",
-            "name": "applyFilters",
             "params": [
                 {
                     "name": "filters",
@@ -156,8 +154,8 @@
             "class": "Batch"
         },
         {
-            "file": "NgModel.js",
-            "line": 137,
+            "file": "temp/NgModel.js",
+            "line": 136,
             "description": "Check if value is defined.",
             "params": [
                 {
@@ -174,8 +172,8 @@
             "class": "Batch"
         },
         {
-            "file": "NgModel.js",
-            "line": 148,
+            "file": "temp/NgModel.js",
+            "line": 147,
             "description": "Extend properties to target class.",
             "params": [
                 {
@@ -194,8 +192,8 @@
             "class": "Batch"
         },
         {
-            "file": "NgModel.js",
-            "line": 169,
+            "file": "temp/NgModel.js",
+            "line": 168,
             "description": "Call parent class method",
             "params": [
                 {
@@ -219,8 +217,8 @@
             "class": "Batch"
         },
         {
-            "file": "NgModel.js",
-            "line": 191,
+            "file": "temp/NgModel.js",
+            "line": 190,
             "description": "Check if strict",
             "return": {
                 "description": "Boolean"
@@ -230,8 +228,8 @@
             "class": "Batch"
         },
         {
-            "file": "NgModel.js",
-            "line": 201,
+            "file": "temp/NgModel.js",
+            "line": 200,
             "description": "Set namespace in object.",
             "params": [
                 {
@@ -255,8 +253,8 @@
             "class": "Batch"
         },
         {
-            "file": "NgModel.js",
-            "line": 213,
+            "file": "temp/NgModel.js",
+            "line": 212,
             "description": "Get namespace in object.",
             "params": [
                 {
@@ -279,8 +277,8 @@
             "class": "Batch"
         },
         {
-            "file": "NgModel.js",
-            "line": 225,
+            "file": "temp/NgModel.js",
+            "line": 224,
             "description": "Remove namespace in object.",
             "params": [
                 {
@@ -305,7 +303,102 @@
             "class": "Batch"
         },
         {
-            "file": "NgModel.js",
+            "file": "temp/NgModel.js",
+            "line": 267,
+            "description": "Create new child type of model.",
+            "itemtype": "method",
+            "name": "create",
+            "static": 1,
+            "params": [
+                {
+                    "name": "properties",
+                    "description": "prototypeProperties for child model prototype.",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "statics",
+                    "description": "staticProperties for child model static properties.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "Constructor",
+                "type": "Function"
+            },
+            "class": "NgModel"
+        },
+        {
+            "file": "temp/NgModel.js",
+            "line": 304,
+            "description": "Fetch one record.",
+            "itemtype": "method",
+            "name": "fetchOne",
+            "static": 1,
+            "params": [
+                {
+                    "name": "id",
+                    "description": "",
+                    "type": "Mixed"
+                },
+                {
+                    "name": "options",
+                    "description": "Additional options for request.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "$q.promise"
+            },
+            "class": "NgModel"
+        },
+        {
+            "file": "temp/NgModel.js",
+            "line": 319,
+            "description": "Fetch collection of records.",
+            "itemtype": "method",
+            "name": "fetchAll",
+            "static": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "Additional options for request.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "$q.promise"
+            },
+            "class": "NgModel"
+        },
+        {
+            "file": "temp/NgModel.js",
+            "line": 354,
+            "description": "Call parent class method",
+            "itemtype": "method",
+            "name": "callParent",
+            "static": 1,
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "args",
+                    "description": "Arguments you need in the parent method.",
+                    "type": "Mixed",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Mixed"
+            },
+            "class": "NgModel"
+        },
+        {
+            "file": "temp/NgModel.js",
             "line": 366,
             "description": "The default namespace for the id property.",
             "itemtype": "property",
@@ -315,7 +408,7 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
+            "file": "temp/NgModel.js",
             "line": 375,
             "description": "The default propertiers of a record.",
             "itemtype": "property",
@@ -325,7 +418,7 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
+            "file": "temp/NgModel.js",
             "line": 384,
             "description": "The default headers for a request.",
             "itemtype": "property",
@@ -335,7 +428,7 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
+            "file": "temp/NgModel.js",
             "line": 393,
             "description": "The root namespace which contain the data.",
             "itemtype": "property",
@@ -345,7 +438,7 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
+            "file": "temp/NgModel.js",
             "line": 402,
             "description": "The main request url.",
             "itemtype": "property",
@@ -355,7 +448,7 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
+            "file": "temp/NgModel.js",
             "line": 411,
             "description": "Filter for data processing when reading.",
             "itemtype": "property",
@@ -365,7 +458,7 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
+            "file": "temp/NgModel.js",
             "line": 420,
             "description": "Filter for data processing when writing.",
             "itemtype": "property",
@@ -375,7 +468,7 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
+            "file": "temp/NgModel.js",
             "line": 429,
             "description": "Exclude non persit data from request.",
             "itemtype": "property",
@@ -385,7 +478,7 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
+            "file": "temp/NgModel.js",
             "line": 438,
             "description": "Define your model crud schema.",
             "itemtype": "property",
@@ -395,7 +488,7 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
+            "file": "temp/NgModel.js",
             "line": 452,
             "description": "Specify certain url for certain operations (optional).",
             "itemtype": "property",
@@ -405,7 +498,7 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
+            "file": "temp/NgModel.js",
             "line": 466,
             "description": "Specify for which operation your model should append data to the request.",
             "itemtype": "property",
@@ -415,11 +508,13 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
+            "file": "temp/NgModel.js",
             "line": 480,
             "description": "Model initialization",
             "itemtype": "method",
             "name": "initialize",
+            "access": "private",
+            "tagname": "",
             "params": [
                 {
                     "name": "properties",
@@ -437,8 +532,8 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
-            "line": 511,
+            "file": "temp/NgModel.js",
+            "line": 512,
             "description": "Check if model data has changed since the last sync.",
             "itemtype": "method",
             "name": "hasChanged",
@@ -457,8 +552,8 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
-            "line": 533,
+            "file": "temp/NgModel.js",
+            "line": 534,
             "description": "Create object which contains all changed properties.",
             "itemtype": "method",
             "name": "changedProperties",
@@ -477,8 +572,8 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
-            "line": 563,
+            "file": "temp/NgModel.js",
+            "line": 564,
             "description": "Get the state of a property before the last change.",
             "itemtype": "method",
             "name": "previous",
@@ -496,8 +591,8 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
-            "line": 577,
+            "file": "temp/NgModel.js",
+            "line": 578,
             "description": "Get the state of data before the last change.",
             "itemtype": "method",
             "name": "previousProperties",
@@ -508,8 +603,8 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
-            "line": 587,
+            "file": "temp/NgModel.js",
+            "line": 588,
             "description": "Read a record.",
             "itemtype": "method",
             "name": "fetch",
@@ -527,8 +622,8 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
-            "line": 625,
+            "file": "temp/NgModel.js",
+            "line": 626,
             "description": "Save/Update a record.",
             "itemtype": "method",
             "name": "save",
@@ -546,8 +641,8 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
-            "line": 664,
+            "file": "temp/NgModel.js",
+            "line": 665,
             "description": "Delete a record.",
             "itemtype": "method",
             "name": "destroy",
@@ -565,11 +660,13 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
-            "line": 691,
+            "file": "temp/NgModel.js",
+            "line": 692,
             "description": "Sync a record.",
             "itemtype": "method",
             "name": "sync",
+            "access": "private",
+            "tagname": "",
             "params": [
                 {
                     "name": "operation",
@@ -594,11 +691,13 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
-            "line": 713,
+            "file": "temp/NgModel.js",
+            "line": 715,
             "description": "Put together url for request.",
             "itemtype": "method",
             "name": "buildUrl",
+            "access": "private",
+            "tagname": "",
             "params": [
                 {
                     "name": "operation",
@@ -619,11 +718,13 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
-            "line": 742,
+            "file": "temp/NgModel.js",
+            "line": 745,
             "description": "Parse raw data from request response.",
             "itemtype": "method",
             "name": "parse",
+            "access": "private",
+            "tagname": "",
             "params": [
                 {
                     "name": "data",
@@ -644,8 +745,8 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
-            "line": 758,
+            "file": "temp/NgModel.js",
+            "line": 762,
             "description": "Indicates if record is new or not (important for save/update operation).",
             "itemtype": "method",
             "name": "isNew",
@@ -656,8 +757,8 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
-            "line": 768,
+            "file": "temp/NgModel.js",
+            "line": 772,
             "description": "Getter for data property.",
             "itemtype": "method",
             "name": "toJSON",
@@ -668,8 +769,8 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
-            "line": 778,
+            "file": "temp/NgModel.js",
+            "line": 782,
             "description": "Easy way to extend model to a scope.",
             "itemtype": "method",
             "name": "toScope",
@@ -692,11 +793,13 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
-            "line": 791,
+            "file": "temp/NgModel.js",
+            "line": 795,
             "description": "Process data for batch (advised to extend as soon as you want extended data processing for requests).",
             "itemtype": "method",
             "name": "getRequestData",
+            "access": "private",
+            "tagname": "",
             "return": {
                 "description": "",
                 "type": "Object"
@@ -704,8 +807,8 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
-            "line": 801,
+            "file": "temp/NgModel.js",
+            "line": 806,
             "description": "Get id of record.",
             "itemtype": "method",
             "name": "getId",
@@ -716,8 +819,8 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
-            "line": 811,
+            "file": "temp/NgModel.js",
+            "line": 816,
             "description": "Change id of record.",
             "itemtype": "method",
             "name": "setId",
@@ -735,8 +838,8 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
-            "line": 823,
+            "file": "temp/NgModel.js",
+            "line": 828,
             "description": "Getter for certain data properties.",
             "itemtype": "method",
             "name": "get",
@@ -754,8 +857,8 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
-            "line": 834,
+            "file": "temp/NgModel.js",
+            "line": 839,
             "description": "Setter for certain data properties.",
             "itemtype": "method",
             "name": "set",
@@ -778,8 +881,8 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
-            "line": 847,
+            "file": "temp/NgModel.js",
+            "line": 852,
             "description": "Create a new object which all filtered data wanted.",
             "itemtype": "method",
             "name": "range",
@@ -799,8 +902,8 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
-            "line": 873,
+            "file": "temp/NgModel.js",
+            "line": 878,
             "description": "Easily extend the data object of your model.",
             "itemtype": "method",
             "name": "extend",
@@ -818,11 +921,13 @@
             "class": "NgModel"
         },
         {
-            "file": "NgModel.js",
-            "line": 885,
+            "file": "temp/NgModel.js",
+            "line": 890,
             "description": "Call parent class method",
             "itemtype": "method",
             "name": "callParent",
+            "access": "private",
+            "tagname": "",
             "params": [
                 {
                     "name": "args",
@@ -840,92 +945,36 @@
     ],
     "warnings": [
         {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " NgModel.js:40"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " NgModel.js:79"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " NgModel.js:90"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " NgModel.js:101"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " NgModel.js:213"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " NgModel.js:511"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " NgModel.js:533"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " NgModel.js:563"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " NgModel.js:577"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " NgModel.js:758"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " NgModel.js:768"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " NgModel.js:778"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " NgModel.js:791"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " NgModel.js:801"
-        },
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " NgModel.js:811"
+            "message": "Missing item type\nProcess filters through data object.",
+            "line": " temp/NgModel.js:113"
         },
         {
             "message": "Missing item type\nCheck if value is defined.",
-            "line": " NgModel.js:137"
+            "line": " temp/NgModel.js:136"
         },
         {
             "message": "Missing item type\nExtend properties to target class.",
-            "line": " NgModel.js:148"
+            "line": " temp/NgModel.js:147"
         },
         {
             "message": "Missing item type\nCall parent class method",
-            "line": " NgModel.js:169"
+            "line": " temp/NgModel.js:168"
         },
         {
             "message": "Missing item type\nCheck if strict",
-            "line": " NgModel.js:191"
+            "line": " temp/NgModel.js:190"
         },
         {
             "message": "Missing item type\nSet namespace in object.",
-            "line": " NgModel.js:201"
+            "line": " temp/NgModel.js:200"
         },
         {
             "message": "Missing item type\nGet namespace in object.",
-            "line": " NgModel.js:213"
+            "line": " temp/NgModel.js:212"
         },
         {
             "message": "Missing item type\nRemove namespace in object.",
-            "line": " NgModel.js:225"
+            "line": " temp/NgModel.js:224"
         }
     ]
 }

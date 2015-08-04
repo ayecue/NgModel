@@ -1,0 +1,10 @@
+{
+    "name": "NgModel",
+    "description": "A ExtJS inspired modellayer for AngularJS",
+    "version": "0.1.6",
+    "url": "https://github.com/ayecue/NgModel",
+    "options": {
+    	"paths": "temp",
+        "outdir": "doc"
+    }
+}

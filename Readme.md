@@ -104,3 +104,23 @@ module('myApp').factory('Sizes', function (NgModel) {
 	};
 });
 ```
+
+
+## Developer commands
+
+Make sure you have all dev deps installed. Also I am using certain linux commands in "doc" and "build" so those commands won't probably work on windows.
+
+Run tests:
+```
+npm run test
+```
+
+Rebuild documentation:
+```
+npm run doc
+```
+
+Minify NgModel:
+```
+npm run build
+```
